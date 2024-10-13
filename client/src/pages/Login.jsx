@@ -1,23 +1,25 @@
-import {useState} from 'react';
-import axios from 'axios'; //for http requests
-import {toast} from 'react-hot-toast'; //to display notifications and messages to user
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
-import { FaUser,FaEnvelope, FaLock } from 'react-icons/fa';
+import { useState } from "react";
+import axios from 'axios'
+import { toast } from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
+import { FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import './Login.css'; // Adjust the path as necessary
 
 export default function Login() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState({
-    name:'',
-    email:'',
-    password:''
+    name: '',
+    email: '',
+    password: '',
   });
 
-  const loginUser  = async(e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
-    const {name,email,password}=data;
-    try{
-      const response=await axios.post('http://localhost:8000/auth/login', {
+    const { name, email, password } = data;
+    try {
+      const response = await axios.post('http://localhost:8000/auth/login', {
         name,
         email,
         password
@@ -30,14 +32,14 @@ export default function Login() {
         toast.success('Login Successful!!');
         navigate('/dashboard');
       }
-    } catch(error){
+    } catch (error) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.error || 'An error occurred during login');
       } else {
         toast.error(error.message || 'An error occurred');
       }
     }
-  };
+  }
 
   return (
     <div className='wrapper'>
@@ -63,7 +65,7 @@ export default function Login() {
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
-          <FaEnvelope className="icon" />
+          <MdEmail className="icon" />
         </div>
         <div className="input-box">
           <input
@@ -74,7 +76,7 @@ export default function Login() {
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
-          <FaLock className="icon" />
+          <RiLockPasswordFill className="icon" />
         </div>
         <div className="remember-forget">
           <label><input type="checkbox" />Remember me</label>

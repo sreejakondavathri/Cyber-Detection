@@ -1,58 +1,63 @@
-import {useState} from 'react';
+import { useState } from "react";
 import axios from 'axios';
-import {toast} from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import { FaUser,FaEnvelope,FaLock } from 'react-icons/fa';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 import './Register.css';
+import { FaUser } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
 import { IoMdCall } from "react-icons/io";
 
 export default function Register() {
-    const navigate=useNavigate();
-    const [data, setData] = useState({ 
-      name: '', 
-      email: '',
-      password: '',
-      confirmPassword: '',
-      phone: '',
-      otpMethod: 'email' // Default to email 
-    });
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
+    otpMethod: 'email' // Default to email
+  });
 
-    const registerUser  = async(e) => {
-      e.preventDefault();
-      const {name,email,password,confirmPassword, phone, otpMethod }=data;
-      
-      const trimmedPassword = password.trim();
-      const trimmedConfirmPassword = confirmPassword.trim();
-      const trimmedPhone = phone.trim();
+  const registerUser = async (e) => {
+    e.preventDefault();
+    const { name, email, password, confirmPassword, phone, otpMethod } = data;
 
-      if (trimmedPassword !== trimmedConfirmPassword) {
-        console.error('Validation Error: Passwords do not match');
-        toast.error('Passwords do not match');
-        return;
-      }
+    // Trim and validate data
+    const trimmedPassword = password.trim();
+    const trimmedConfirmPassword = confirmPassword.trim();
+    const trimmedPhone = phone.trim();
 
-      if (trimmedPassword.length < 6) {
-        toast.error('Password must be at least 6 characters long');
-        return;
-      }
+    // Check if passwords match
+    if (trimmedPassword !== trimmedConfirmPassword) {
+      console.error('Validation Error: Passwords do not match');
+      toast.error('Passwords do not match');
+      return;
+    }
 
-      if (!/^\d{10}$/.test(trimmedPhone)) {
-        toast.error('Phone number must be exactly 10 digits long');
-        console.error('Validation Error: Phone number must be exactly 10 digits long');
-        return;
-      }
+    // Check if password length is valid
+  if (trimmedPassword.length < 6) {
+    toast.error('Password must be at least 6 characters long');
+    return;
+  }
 
-      try {
-        const response = await axios.post('http://localhost:8000/auth/register', {
-          name: name.trim(), 
-          email: email.trim(), 
-          password: trimmedPassword, 
-          confirmPassword: trimmedConfirmPassword,
-          phone: trimmedPhone,
-          otpMethod
-        });
+    if (!/^\d{10}$/.test(trimmedPhone)) {
+      toast.error('Phone number must be exactly 10 digits long');
+      console.error('Validation Error: Phone number must be exactly 10 digits long');
+      return;
+    }
 
-        const { data } = response;
+    try {
+      const response = await axios.post('http://localhost:8000/auth/register', {
+        name: name.trim(), 
+        email: email.trim(), 
+        password: trimmedPassword, 
+        confirmPassword: trimmedConfirmPassword,
+        phone: trimmedPhone,
+        otpMethod
+      });
+
+      const { data } = response;
       if (data.error) {
         toast.error(data.error);
       } else {
@@ -62,7 +67,8 @@ export default function Register() {
         if (localStorage.getItem('phone') !== trimmedPhone) {
           localStorage.setItem('phone', trimmedPhone);
         }
-
+        
+        
         setData({
           name: '',
           email: '',
@@ -76,14 +82,12 @@ export default function Register() {
       }
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);
-      toast.error(error.response?.data?.error || 'An error occurred during registration');
+  toast.error(error.response?.data?.error || 'An error occurred during registration');
     }
-
   };
 
-
-return (
-  <div className="wrapper">
+  return (
+    <div className="wrapper">
       <form onSubmit={registerUser}>
         <h1>Register</h1>
         <div className="input-box">
@@ -105,7 +109,7 @@ return (
             onChange={(e) => setData({ ...data, email: e.target.value })}
             autoComplete="email"
           />
-          <FaEnvelope className="icon" />
+          <IoIosMail className="icon" />
         </div>
         <div className="input-box">
           <input
@@ -115,7 +119,7 @@ return (
             onChange={(e) => setData({ ...data, password: e.target.value })}
             autoComplete="new-password"
           />
-          <FaLock className="icon" />
+          <RiLockPasswordFill className="icon" />
         </div>
         <div className="input-box">
           <input
@@ -125,7 +129,7 @@ return (
             onChange={(e) => setData({ ...data, confirmPassword: e.target.value })}
             autoComplete="new-password"
           />
-          <FaLock className="icon" />
+          <RiLockPasswordFill className="icon" />
         </div>
         <div className="input-box">
           <input
@@ -138,7 +142,7 @@ return (
           <IoMdCall className="icon" />
         </div>
         <div className="input-box-choice">
-          <p>Send OTP to:</p>
+          <p>Select where you want to receive the OTP:</p>
           <label className="btn-choice-email">
             <input
               type='radio'
