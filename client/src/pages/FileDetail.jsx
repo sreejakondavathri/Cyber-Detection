@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 //import { UserContext } from '../../context/userContext';
 import './FileDetail.css';
+import Navbar from '../components/Navbar';
 
 const FileDetail = () => {
     const { filename } = useParams();

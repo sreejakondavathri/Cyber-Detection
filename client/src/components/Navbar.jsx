@@ -1,30 +1,40 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+// c:\Users\sreeja\OneDrive\Documents\GitHub Projects\Cyber-Detection\client\src\components\Navbar.jsx
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/userContext'; // Import UserContext
 import './Navbar.css';
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentPath = location.pathname;
+  const { logout } = useContext(UserContext); // Access logout function from context
 
-  // Determine if the Login and Register links should be hidden
-  const hideAuthLinks = currentPath === '/login' || currentPath === '/register';
+  const handleLogout = async () => {
+    await logout(); // Call the logout function
+    window.location.href = '/'; // Redirect to home after logout
+  };
 
   return (
     <div className="navbar">
       <nav className="navbar-container">
-        {/* Home link aligned to the left */}
-        <div className="navbar-left">
-          <Link to='/'>Home</Link>
-        </div>
-
-        <div className="navbar-right">
-          <div className={`login-navbar-right ${hideAuthLinks ? 'hidden' : ''}`}>
+        {/* Show Back button only if not on Dashboard page */}
+        {currentPath !== '/' && currentPath !== '/dashboard' && (
+          <button onClick={() => navigate(-1)} className="nav-button">Back</button>
+        )}
+        {currentPath === '/' && ( // Show Home, Login, Register links on Home page
+          <div className="navbar-left">
+            <Link to='/'>Home</Link>
             <Link to='/login'>Login</Link>
-          </div>
-          <div className={`register-navbar-right ${hideAuthLinks ? 'hidden' : ''}`}>
             <Link to='/register'>Register</Link>
           </div>
-        </div>
+        )}
+
+        {currentPath === '/dashboard' && ( // Show Logout button on Dashboard page
+          <div className="logout-navbar-right">
+            <button onClick={handleLogout} className="nav-button">Logout</button> {/* Logout button */}
+          </div>
+        )}
       </nav>
     </div>
   );

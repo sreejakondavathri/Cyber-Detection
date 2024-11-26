@@ -11,6 +11,9 @@ import axios from 'axios';
 import {Toaster} from 'react-hot-toast';
 import  UserContextProvider  from '../context/userContext';
 import Dashboard from './pages/Dashboard';
+import ScrapingPage from './pages/ScrapingPage';
+import CyberAnnotationPage from './pages/CyberAnnotationPage';
+import QAModelPage from './pages/QAModelPage';
 import ScrapedFiles from './pages/ScrapedFiles';
 import FileDetail from './pages/FileDetail';
 
@@ -35,6 +38,9 @@ function App() {
          <Route path="/forgot-password" element={<ForgotPassword />} />
          <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
          <Route path='/dashboard' element={<Dashboard />}/>
+         <Route path='/scraping' element={<ScrapingPage />} />
+         <Route path='/cyber-annotation' element={<CyberAnnotationPage />} />
+         <Route path='/qa-model' element={<QAModelPage />} />
          <Route path="/file-detail/:filename" element={<FileDetail />} />
          <Route path="/scraped-files" element={<ScrapedFiles />} />
 

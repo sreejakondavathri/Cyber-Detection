@@ -1,0 +1,70 @@
+.scraping-navbar {
+  display: flex;
+  justify-content: flex-start; /* Align Back button to the left */
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+  color: white
+}
+
+.back-button {
+  background-color: #6c757d; /* Gray background */
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: #5a6268; /* Darker gray on hover */
+}
+
+.scraping-page {
+  text-align: center;
+  color: white; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  width: 500px;
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px;
+  background: rgba(13, 16, 33, 0.13);
+}
+
+.scraping-form-container {
+  margin-top: 60px;
+}
+
+.scraping-form-container input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px; 
+  border-radius: 5px;
+  height: 45px;
+}
+
+.scraping-form-container button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.scraping-form-container button:hover {
+  background-color: #218838;
+}
+
+.scraping-error {
+  color: red;
+  margin-top: 10px;
+}
