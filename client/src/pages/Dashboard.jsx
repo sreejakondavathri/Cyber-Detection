@@ -23,6 +23,9 @@ export default function Dashboard() {
         <div className='dashboard'>
             <Navbar /> {/* Add Navbar here */}
             <h1>Dashboard</h1>
+            <div className="details">
+                <h1>RAG Cyber Detection - Kondavathri Sreeja, 22BD1A6728</h1>
+            </div>
             <div className='button-container'>
                 <button onClick={handleScrapingClick}>Scraping Website</button>
                 <button onClick={handleCyberAnnotationClick}>Cyber Annotation</button>

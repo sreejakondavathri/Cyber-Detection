@@ -53,6 +53,8 @@
     -authRoutes.js
   -.env
   -app.py
+  -ml_model.py
+  -qa_model.py
   -index.js
   -package.json
   -package-lock.json

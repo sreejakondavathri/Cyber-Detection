@@ -56,7 +56,7 @@ export default function CyberAnnotationPage() {
     return (
         <div className='cyber-annotation-page'>
             <Navbar />
-            <h1>Cyber Annotation Page</h1>
+            <h1>Cyber Attribution Annotation </h1>
             <textarea
                 rows="10"
                 cols="50"

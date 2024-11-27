@@ -11,8 +11,12 @@ export default function Navbar() {
   const { logout } = useContext(UserContext); // Access logout function from context
 
   const handleLogout = async () => {
-    await logout(); // Call the logout function
-    window.location.href = '/'; // Redirect to home after logout
+    // Show confirmation dialog
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      await logout(); // Call the logout function
+      window.location.href = '/'; // Redirect to home after logout
+    }
   };
 
   return (

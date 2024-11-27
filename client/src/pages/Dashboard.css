@@ -94,6 +94,9 @@
     background-color: #0056b3; /* Darker shade on hover */
 }
 
+.details{
+    display: flex;
+}
 /* Styling for the search bar */
 .search-bar {
     display: flex;
