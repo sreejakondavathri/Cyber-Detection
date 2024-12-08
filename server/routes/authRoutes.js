@@ -43,4 +43,15 @@ router.post('/api/scrape', scrapeController.scrapeWebsite);
 router.get('/api/scraped-files', scrapeController.getAllScrapedFiles);
 router.get('/api/scraped-files/:filename', scrapeController.getScrapedFileContent);
 
+// In server/routes/authRoutes.js or a new file
+router.get('/api/dataset', async (req, res) => {
+    try {
+        const dataset = await qa_data; // Assuming qa_data is accessible here
+        res.json(dataset);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch dataset' });
+    }
+});
+
 module.exports = router;

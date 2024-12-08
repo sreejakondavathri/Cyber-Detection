@@ -19,6 +19,10 @@ export default function Dashboard() {
         navigate('/qa-model');
     };
 
+    const handleViewDatasetClick = () => {
+        navigate('/view-dataset');  // Navigate to the view dataset page
+    };
+
     return (
         <div className='dashboard'>
             <Navbar /> {/* Add Navbar here */}
@@ -27,6 +31,7 @@ export default function Dashboard() {
                 <h1>RAG Cyber Detection - Kondavathri Sreeja, 22BD1A6728</h1>
             </div>
             <div className='button-container'>
+                <button onClick={handleViewDatasetClick}>View Database</button>
                 <button onClick={handleScrapingClick}>Scraping Website</button>
                 <button onClick={handleCyberAnnotationClick}>Cyber Annotation</button>
                 <button onClick={handleQAModelClick}>Q/A Model</button>

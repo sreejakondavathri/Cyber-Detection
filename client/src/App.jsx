@@ -16,7 +16,7 @@ import CyberAnnotationPage from './pages/CyberAnnotationPage';
 import QAModelPage from './pages/QAModelPage';
 import ScrapedFiles from './pages/ScrapedFiles';
 import FileDetail from './pages/FileDetail';
-
+import ViewDataset from './pages/ViewDataset';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -43,7 +43,8 @@ function App() {
          <Route path='/qa-model' element={<QAModelPage />} />
          <Route path="/file-detail/:filename" element={<FileDetail />} />
          <Route path="/scraped-files" element={<ScrapedFiles />} />
-
+         <Route path="/view-dataset" element={<ViewDataset />} />
+         
       </Routes>
     </UserContextProvider>
   );
