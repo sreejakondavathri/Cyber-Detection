@@ -73,8 +73,6 @@
 .button-container {
     display: flex;
     flex-direction: column; /* Arrange buttons vertically */
-    gap: 20px; /* Space between buttons */
-    margin-top: 20px; /* Space above the button container */
 }
 
 /* Styling for the buttons */

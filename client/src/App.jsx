@@ -12,11 +12,13 @@ import {Toaster} from 'react-hot-toast';
 import  UserContextProvider  from '../context/userContext';
 import Dashboard from './pages/Dashboard';
 import ScrapingPage from './pages/ScrapingPage';
-import CyberAnnotationPage from './pages/CyberAnnotationPage';
-import QAModelPage from './pages/QAModelPage';
 import ScrapedFiles from './pages/ScrapedFiles';
 import FileDetail from './pages/FileDetail';
+import CyberAnnotation from './pages/CyberAnnotation';
+import DistilBertQA from './pages/DistilBertQA';
 import ViewDataset from './pages/ViewDataset';
+import ExtractPage from './pages/ExtractPage';
+import ExtractedContentPage from './pages/ExtractedContentPage';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -39,11 +41,14 @@ function App() {
          <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
          <Route path='/dashboard' element={<Dashboard />}/>
          <Route path='/scraping' element={<ScrapingPage />} />
-         <Route path='/cyber-annotation' element={<CyberAnnotationPage />} />
-         <Route path='/qa-model' element={<QAModelPage />} />
          <Route path="/file-detail/:filename" element={<FileDetail />} />
          <Route path="/scraped-files" element={<ScrapedFiles />} />
+         <Route path="/classification" element={<CyberAnnotation />} />
+         {/* <Route path='/qa-model' element={<DistilBertQA />} /> */}
+         <Route path="/distilbert-qa" element={<DistilBertQA />} />
          <Route path="/view-dataset" element={<ViewDataset />} />
+         <Route path="/extract-data" element={<ExtractPage />} />
+         <Route path="/extracted-content" element={<ExtractedContentPage />} />
          
       </Routes>
     </UserContextProvider>
