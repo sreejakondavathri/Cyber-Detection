@@ -8,7 +8,6 @@ const cookieParser = require('cookie-parser')
 const axios = require('axios');
 const { PythonShell } = require('python-shell');
 const authRoutes = require('./routes/authRoutes');
-const scrapeRoutes = require('./routes/scrapeRoutes');
 const extractController = require('./controllers/extractController');
 
 const app = express();
@@ -26,12 +25,11 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 // Routes
 app.use('/auth', authRoutes);
-app.use('/scrape', scrapeRoutes);
 app.use('/api', extractController);
 
 // Serve the JSON file directly
 app.get('/api/dataset', (req, res) => {
-    const filePath = path.join(__dirname, 'datasets', 'FinalMergedDatabase.json');
+    const filePath = path.join(__dirname, 'datasets', 'CleanedQuestionsAnswersCSV.json');
 
     if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'File not found' });

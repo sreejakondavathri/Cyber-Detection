@@ -7,21 +7,10 @@ import Navbar from '../components/Navbar'; // Import Navbar
 export default function Dashboard() {
     const navigate = useNavigate();
 
-    const handleScrapingClick = () => {
-        navigate('/scraping');
-    };
-
-    // const handleCyberAnnotationClick = () => {
-    //     navigate('/cyber-annotation');
-    // };
-
     const handleclassifyClick = () => {
         navigate('/classification');  // Navigate to the scraping page
     };
 
-    // const handleQAModelClick = () => {
-    //     navigate('/qa-model');
-    // };
 
     const handleDistilBertClick = () => {
         navigate('/distilbert-qa'); // Navigate to the DistilBertQA page
@@ -44,11 +33,8 @@ export default function Dashboard() {
             </div>
             <div className='button-container'>
                 <button onClick={handleViewDatasetClick}>View Database</button>
-                <button onClick={handleScrapingClick}>Scraping Website</button>
                 <button onClick={handleExtractDataClick}>Scrape website from url</button>
-                {/* <button onClick={handleCyberAnnotationClick}>Cyber Annotation with XGBoost</button> */}
                 <button onClick={handleclassifyClick}>Cyber Annotation with spacy</button>
-                {/* <button onClick={handleQAModelClick}>Q/A Model</button> */}
                 <button onClick={handleDistilBertClick}>DistilBERT QA Model</button>
             </div>
         </div>
