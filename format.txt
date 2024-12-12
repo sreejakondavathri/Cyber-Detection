@@ -7,19 +7,21 @@
       -Navbar.jsx
       -Navbar.css
     -pages
-      -CyberAnnotationPage.jsx
-      -CyberAnnotationPage.css
+      -CyberAnnotation.jsx
+      -CyberAnnotation.css
       -Dashboard.jsx
       -Dashboard.css
-      -FileDetail.jsx
-      -FileDetail.css
+      -DistilBertQA.jsx
+      -DistilBertQA.css
+      -ExtractedContentPage.jsx
+      -ExtractedContentPage.css
+      -ExtractPage.jsx
+      -ExtractPage.jsx
       -ForgotPassword.jsx
       -ForgotPassword.css
       -Home.jsx
       -Login.jsx
       -Login.css
-      -QAModelPage.jsx
-      -QAModelPage.css
       -Register.jsx
       -Register.css
       -ResetPassword.jsx
@@ -30,6 +32,8 @@
       -ScrapingPage.css
       -VerifyOTP.jsx
       -VerifyOTP.css
+      -ViewDataset.jsx
+      -ViewDataset.css
     -App.jsx
     -App.css
     -index.css
@@ -40,20 +44,25 @@
 -server
   -controllers
     -authController.js
-    -scrapeController.js
+    -extractController.js
+  -datasets
+    -CleanedQuestionsAnswersCSV.csv
+    -CleanedQuestionsAnswersCSV.csv
+    -FinalMergedDatabase.json
   -helpers
     -auth.js
   -middlewares
      -authMiddleware.js
   -models
+    -ExtractedContent.js
     -otp.js
-    -ScrapedFile.js
     -user.js
   -routes
     -authRoutes.js
+    -scrapeRoutes.js
   -.env
   -app.py
-  -ml_model.py
+  -classifyspacy.py
   -qa_model.py
   -index.js
   -package.json

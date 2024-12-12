@@ -29,7 +29,7 @@ app.use('/api', extractController);
 
 // Serve the JSON file directly
 app.get('/api/dataset', (req, res) => {
-    const filePath = path.join(__dirname, 'datasets', 'CleanedQuestionsAnswersCSV.json');
+    const filePath = path.join(__dirname, 'datasets', 'FinalMergedDatabase.json');
 
     if (!fs.existsSync(filePath)) {
         return res.status(404).json({ error: 'File not found' });
