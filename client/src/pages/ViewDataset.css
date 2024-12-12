@@ -1,40 +1,56 @@
 .dataset-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: lightblue; /* Optional: For the background color */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
-  }
-  
-  .dataset-table {
-    width: 100%;
-    border-collapse: collapse; /* Ensures no extra space between table borders */
-    text-align: left;
-  }
-  
-  .dataset-table th, .dataset-table td {
-    padding: 10px; /* Reduced padding for less spacing */
-    border: 1px solid #ddd;
-    word-wrap: break-word;
-    white-space: normal; /* Forces wrapping */
-    max-width: 250px; /* Adjust as needed */
-    vertical-align: top; /* Align text to the top */
-  }
-  
-  .dataset-table th {
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-  }
-  
+  margin-top: 50px;
+  text-align: center;
+  color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Start content at the top */
+  border: 1px solid #4CAF50;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #1e1e2f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-height: 600px; /* Increase height to prevent cutting */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.dataset-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  position: relative;
+}
+
+.dataset-table th,
+.dataset-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  white-space: normal; /* Forces wrapping */
+  max-width: 250px;
+  vertical-align: top;
+}
+
+.dataset-table th {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  position: sticky; /* Keeps headers visible while scrolling */
+  top: 0; /* Ensures headers stick to the top */
+  z-index: 10; /* Makes sure headers appear above table rows */
+  border: 1px solid #ddd; /* Adds consistent border */
+  box-shadow: none; 
+}
+
+.dataset-table td {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .dataset-table th,
   .dataset-table td {
-    background-color: #f9f9f9;
+    font-size: 12px;
   }
-  
-  @media (max-width: 768px) {
-    .dataset-table th, .dataset-table td {
-      font-size: 12px; /* Reduces font size for smaller screens */
-    }
-  }
+}

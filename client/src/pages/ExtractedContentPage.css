@@ -1,8 +1,17 @@
 /* ExtractedContentPage.css */
 .extracted-content-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  border: 1px solid #4CAF50; /* Match the border style */
+  border-radius: 15px; /* Increased border radius for a similar look */
+  padding: 20px;
+  background-color: #1e1e2f; /* Same dark background as CyberAnnotation */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .extracted-content-page h1 {
@@ -30,4 +39,5 @@ pre {
     font-size: 14px;
     white-space: pre-wrap; /* Ensures white space and line breaks are preserved */
     word-wrap: break-word;
+    color: #1e1e2f;
 }

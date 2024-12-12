@@ -1,16 +1,17 @@
 /* Main container for the DistilBERT QA box */
 .qabox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: rgba(18, 18, 28, 0.95); /* Dark background with slight transparency */
-    border-radius: 15px; /* Rounded corners */
-    border: 1px solid #4CAF50;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7); /* Strong shadow effect */
-    backdrop-filter: blur(8px); /* Subtle blur effect for a modern look */
-    color: #ffffff; /* White text */
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  border: 1px solid #4CAF50; /* Match the border style */
+  border-radius: 15px; /* Increased border radius for a similar look */
+  padding: 20px;
+  background-color: #1e1e2f; /* Same dark background as CyberAnnotation */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Header styling */
@@ -71,8 +72,8 @@ button:disabled {
 }
 
 .answer-section h3 {
+    color: #1e90ff;
     font-size: 1.5rem;
-    color: #ffffff;
 }
 
 .answer-section p {
@@ -91,7 +92,8 @@ button:disabled {
     margin-top: 20px;
     padding: 15px;
     background-color: rgba(44, 44, 60, 0.95); /* Matches the answer box */
-    border-radius: 8px;
+    border: 1px solid #4CAF50; 
+    border-radius: 15px;
     color: #f0f0f0; /* Matches the text color */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow effect */
     text-align: center;

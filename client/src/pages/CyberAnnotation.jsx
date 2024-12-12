@@ -4,11 +4,8 @@ import './CyberAnnotation.css';
 
 function CyberAnnotation() {
   const [sentence, setSentence] = useState('');
-  
-  // Separate states for the classification results
   const [classificationResult, setClassificationResult] = useState(null);
   const [spacyResult, setSpacyResult] = useState(null);
-
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -25,14 +22,14 @@ function CyberAnnotation() {
 
     setIsLoading(true);
     setError('');
-    setClassificationResult(null);  // Clear previous result
-    setSpacyResult(null);  // Clear spaCy result as we are classifying with the other method
+    setClassificationResult(null);
+    setSpacyResult(null);
 
     try {
       const response = await axios.post('http://localhost:5001/api/classify', { text: sentence });
       console.log("Classification response:", response.data);
       const result = response.data.word_entity_mapping;
-      setClassificationResult(result);  // Set result for 'Classify' button
+      setClassificationResult(result);
     } catch (err) {
       setError("Error while classifying. Please try again.");
     } finally {
@@ -48,15 +45,14 @@ function CyberAnnotation() {
 
     setIsLoading(true);
     setError('');
-    setClassificationResult(null);  // Clear previous result
-    setSpacyResult(null);  // Clear classification result
+    setClassificationResult(null);
+    setSpacyResult(null);
 
     try {
       const response = await axios.post('http://localhost:4400/predict-spacy', { text: sentence });
       console.log("spaCy response:", response.data);
-      
-      const result = response.data.entities;  // Assuming response contains an array of entities
-      setSpacyResult(result);  // Set result for 'Classify with spaCy' button
+      const result = response.data.entities;
+      setSpacyResult(result);
     } catch (err) {
       setError("Error while classifying with spaCy. Please try again.");
     } finally {
@@ -79,17 +75,18 @@ function CyberAnnotation() {
           />
         </div>
 
-        <button  onClick={handleClassify} disabled={isLoading}>
-          {isLoading ? 'Classifying...' : 'Classify with xgboost'}
-        </button>
+        <div className="button-group">
+          <button onClick={handleClassify} disabled={isLoading}>
+            {isLoading ? 'Classifying...' : 'Classify with xgboost'}
+          </button>
 
-        <button onClick={handleClassifyWithSpacy} disabled={isLoading}>
-          {isLoading ? 'Classifying with spaCy...' : 'Classify with spaCy'}
-        </button>
+          <button onClick={handleClassifyWithSpacy} disabled={isLoading}>
+            {isLoading ? 'Classifying with spaCy...' : 'Classify with spaCy'}
+          </button>
+        </div>
 
         {error && <p className="error">{error}</p>}
 
-        {/* Rendering 'Classify' result */}
         {classificationResult && (
           <div className="classification-result">
             <h3>Classification Result (from xgboost):</h3>
@@ -103,7 +100,6 @@ function CyberAnnotation() {
           </div>
         )}
 
-        {/* Rendering 'Classify with spaCy' result */}
         {spacyResult && spacyResult.length > 0 && (
           <div className="classification-result">
             <h3>Classification Result (from spaCy):</h3>

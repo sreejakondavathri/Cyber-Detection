@@ -22,13 +22,13 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <nav className="navbar-container">
+      <span className="navbar-logo">RAG-Cyber-Detection</span> {/* Website logo */}
         {/* Show Back button only if not on Dashboard page */}
         {currentPath !== '/' && currentPath !== '/dashboard' && (
           <button onClick={() => navigate(-1)} className="nav-button">Back</button>
         )}
         {currentPath === '/' && ( // Show Home, Login, Register links on Home page
           <div className="navbar-left">
-            <Link to='/'>Home</Link>
             <Link to='/login'>Login</Link>
             <Link to='/register'>Register</Link>
           </div>

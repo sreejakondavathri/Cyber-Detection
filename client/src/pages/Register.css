@@ -1,5 +1,6 @@
 .wrapper{
   width: 500px;
+  margin-top: 10vh;
   background: rgba(13, 16, 33, 0.13);
   box-shadow: 0 0 10px;
   backdrop-filter: blur(5px);
@@ -64,6 +65,7 @@
 }
 .login-link p{
   margin-top: 10px;
+  color: white;
 }
 
 .login-link p a {
@@ -74,6 +76,7 @@
 
 .login-link p a:hover {
   text-decoration:underline;
+  color: #0056b3;
 }
 .input-box-choice{
   height: 65px;
@@ -102,20 +105,21 @@
   margin-left: 10%;
   margin-right: 10%;
   font-size: 16px;
-  color: #fff;
+  color: green;
 }
 .btn-choice-phone {
   align-items: center;
   margin-right: 10%;
   font-size: 16px;
-  color: #fff;
+  color: green;
 }
 
 
 .radio-group input[type="radio"] {
-  accent-color: #fff; /* Adjust color to match the theme */
+  /* Adjust color to match the theme */
   width: 30px;
   height: 30px;
   transform: scale(1.5); /* Increase size */
   margin-right: 10px;
+  color: green;
 }

@@ -29,7 +29,7 @@ export default function Dashboard() {
             <Navbar /> {/* Add Navbar here */}
             <h1>Dashboard</h1>
             <div className="details">
-                <h1>RAG Cyber Detection - Kondavathri Sreeja, 22BD1A6728</h1>
+                <h1>Kondavathri Sreeja 22BD1A6728</h1>
             </div>
             <div className='button-container'>
                 <button onClick={handleViewDatasetClick}>View Database</button>

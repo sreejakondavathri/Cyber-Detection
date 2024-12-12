@@ -1,50 +1,63 @@
 /* Container to hold both the main box and the details box */
 .attribution-classification-container {
-  margin-left: 50px;
-  display: flex; /* Flexbox to align elements side by side */
-  justify-content: space-between; /* Space between the two elements */
-  align-items: flex-start; /* Align items at the top */
-  position: relative; /* Ensure that the details box can be positioned relative to this container */
-  border: 1px solid #4CAF50
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  border: 1px solid #4CAF50;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #1e1e2f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Main content box */
 .attribution-classification {
-  width: 100%; /* Main box takes the container's full width */
+  width: 100%;
   padding: 20px;
-  background-color: #1e1e2f; /* Dark background for consistency */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for elevation */
-  border-radius: 15px; /* Rounded corners for consistency */
+  background-color: #1e1e2f;
+  border-radius: 15px;
   text-align: center;
 }
 
-/* Main content in the attribution classification box */
+/* Title styling */
 .attribution-classification h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: white; /* Ensure the text is visible on the dark background */
+  color: white;
 }
 
+/* Textarea styling */
 .attribution-classification textarea {
-  width: 80%;
+  width: 100%;
   height: 160px;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #6c6c80;; /* Matching border color */
+  border: 1px solid #6c6c80;
   border-radius: 8px;
-  background-color: #2a2a3b; /* Same input background color */
-  color: white; /* Text color for visibility */
-  resize: none; /* Disable resizing */
+  background-color: #2a2a3b;
+  color: white;
+  resize: none;
 }
 
 .attribution-classification textarea:focus {
-  border-color: #4CAF50; /* Green border color */
-  outline: none; /* Remove the default outline */
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Button styling */
+.button-container {
+  display: flex;
+  gap: 10px; /* Add spacing between buttons */
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .attribution-classification button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -62,6 +75,11 @@
   background-color: #45a049;
 }
 
+.button-group button:first-child {
+  margin-right: 8px; /* Add a small gap between the buttons */
+}
+
+/* Error message styling */
 .error {
   color: red;
   margin-top: 10px;
@@ -70,20 +88,19 @@
 /* Classification result container with overflow */
 .classification-result {
   margin-top: 20px;
-  max-height: 200px; /* Limit the height of the output */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
-  background-color: #2a2a3b; /* Background for the result box */
-  padding: 10px; /* Padding for better readability */
-  border: 1px solid #4CAF50; /* Match theme color */
-  border-radius: 8px; /* Rounded corners for consistency */
-  color: white; /* Ensure text visibility */
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #2a2a3b;
+  padding: 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 8px;
+  color: white;
 }
-
 
 .classification-result h3 {
   margin-bottom: 10px;
   font-size: 20px;
-  color: white; /* Ensure header text is visible */
+  color: white;
 }
 
 .classification-result ul {
@@ -94,35 +111,9 @@
 .classification-result li {
   font-size: 16px;
   margin-bottom: 5px;
-  color: #4CAF50; /* Match the theme */
+  color: #4CAF50;
 }
 
 .classification-result li strong {
-  color: white; /* Ensure highlighted text is visible */
-}
-
-/* Details box outside the main container */
-.details-box {
-  width: 30%; /* Smaller width for the details box */
-  padding: 10px;
-  background-color: #1e1e2f; /* Dark background for consistency */
-  border: 1px solid #4CAF50; /* Matching border color */
-  border-radius: 10px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for elevation */
-  text-align: center;
-  position: relative; /* Position absolute within the container */
-  left: -30px; /* Move 30px to the left */
-  bottom: -20px; /* Move 20px down */
-}
-
-.details-box h4 {
-  font-size: 18px;
-  color: white; /* Ensure text is visible */
-  margin-bottom: 10px;
-}
-
-.details-box p {
-  font-size: 16px;
-  color: #4CAF50; /* Match the theme color for secondary text */
-  margin: 5px 0;
+  color: white;
 }
